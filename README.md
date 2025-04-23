@@ -1,7 +1,7 @@
 # ProjetoADS03
 Repositorio criado para Projeto do curso de ADS
 
-## Estura de Pastas
+## Estrura de Pastas
 ```
 ProjetoADS3
 ├── Mongo
