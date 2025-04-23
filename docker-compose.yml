@@ -1,0 +1,33 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  Postgres:
+    build: ./Postgres
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: ADS3
+      POSTGRES_PASSWORD: faat
+      POSTGRES_DB: bd_ADS3
+  
+  Mongo:
+    build: ./Mongo
+    container_name: mongo_container
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ADS3
+      MONGO_INITDB_ROOT_PASSWORD: FAAT
+      MONGO_INITDB_DATABASE: bd_ADS3
+
+  node:
+    build: ./node
+    container_name: node_container
+    environment:
+      DATABASE_URL: postgres://bd_ADS3:ura@db:5432/bd_ADS3
+    ports:
+      - "3000:3000"
+      - "8888:8888"
+    depends_on:
+      - db
+    networks:
+      - faq-net
