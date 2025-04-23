@@ -31,3 +31,9 @@ services:
       - db
     networks:
       - faq-net
+networks:
+  faq-net:
+    driver: bridge
+
+volumes:
+  faq-postgres-data:
